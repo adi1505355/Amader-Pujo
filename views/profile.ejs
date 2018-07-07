@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Profile</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="/css/main.css" />
+    <style>
+ul.breadcrumb {
+   padding: 10px 16px;
+   list-style: none;
+
+
+}
+ul.breadcrumb li {
+   display: inline;
+   font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+   padding: 8px;
+   color: black;
+   content: "/\00a0";
+}
+ul.breadcrumb li a {
+   color: #fff;
+   text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+   color: #01447e;
+   text-decoration: underline;
+}
+</style>
+    <noscript><link rel="stylesheet" href="/css/noscript.css" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt" >
+						<h1><a href="/">Your Profile</a></h1>
+
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="/">Home</a></li>
+											<li><a href="#">Generic</a></li>
+											<li><a href="#">Elements</a></li>
+											<li><a href="#">Sign Up</a></li>
+											<li><a href="#">Log In</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner" style="background-image:url('./images/background.jpeg');">
+						<div class="inner" >
+              <ul class="breadcrumb">
+                      <li class="active"><a href="bookdecr_bookpage.php"><div>ALL Pandals</div></a>
+                      <li class="active"><a href="Engineering_Books.php"> Pandal A</a></li>
+                      <li class="active"><a href="Novel.php">Pandal B</a></li>
+                      <li class="active"><a href="Preparation_Books.php">Pandal C </a></li>
+                      <li class="active"><a href="Guides.php">Pandal D</a></li>
+                      <li class="active"><a href="School_Books.php">Pandal E </a></li>
+                      <li class="active"><a href="Other_Books.php">Pandal F </a></li>
+                  </ul>
+  						<nav id="nav">
+							<h2 >Dashboard</h2>
+							<p>Hello <%=data.username %> <br />
+							</p>
+              <ul class="actions special">
+								<li><a href="/auth/logout" class="button primary">LOGOUT</a></li>
+							</ul>
+
+						</div>
+
+
+					</section>
+
+					<section>
+										<form method="post" action="/profile" enctype="multipart/form-data">
+											<div class="row gtr-uniform">
+
+
+				  							<div class="col-12">
+													<select name="pandalInfo" id="demo-category">
+														<option value="">- Pandal -</option>
+														<option value="1">Pandal A</option>
+														<option value="1">Pandal B</option>
+														<option value="1">Pandal C</option>
+														<option value="1">Pandal C</option>
+													</select>
+												</div>
+
+												<div class="col-12">
+													<textarea name="imageInfo" id="demo-message" placeholder="Enter image information" rows="6"></textarea>
+												</div>
+
+											</div>
+
+										 <input type="file" name="myimage" ></input>
+										 <div class="col-12">
+											 <ul class="actions">
+												 <li><input type="submit" value="SUBMIT" class="primary" /></li>
+
+											 </ul>
+										 </div>
+										 <%= typeof msg != 'undefined' ?msg : '' %>
+										</form>
+
+					</section>
+
+					<section style="height:500px;width:100%;">
+						<ul>
+							<% genres.forEach(function(question) { %>
+
+
+							<li style="color:white;">Name: <%= question.originalName %> - Text: <%= question.originalName %></li>
+							<div class="col-12" style="background:color:green"><span class="image fit"><img src="<%=question.fileName%>" style="height:100px;width:200px;z-index:100;" alt="" /></span></div>
+
+							<% }); %>
+
+			</ul>
+
+
+
+					</section>
+
+
+
+
+
+
+
+		<!-- Scripts -->
+			<script src="/js/jquery.min.js"></script>
+			<script src="/js/jquery.scrollex.min.js"></script>
+			<script src="/js/jquery.scrolly.min.js"></script>
+			<script src="/js/browser.min.js"></script>
+			<script src="/js/breakpoints.min.js"></script>
+			<script src="/js/util.js"></script>
+			<script src="/js/main.js"></script>
+
+	</body>
+</html>
